@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Audio Player</title>
+	<link rel="stylesheet" href="assets/css/animate.css">
+	<link rel="stylesheet" href="assets/css/main.min.css">
+</head>
+<body>
+	<div class="container">
+		<div class="switch">
+			<div class="switch__color">
+				<label class="switch__label">
+					<input class="checkbox" type = 'checkbox'>
+					<span class = 'slider'></span>
+				</label>	
+			</div>
+		</div>
+		
+
+		<div class="player__wrapper">
+			<div class="player">
+				<div class="cover">
+					<img class="cover__img"  alt="cover">
+					<img class="cover__vinil" src="assets/icons/vinyl.svg" alt="vinil" >
+				</div>
+				<div class="text__block">
+					<div class="song">Чистый</div>
+					<audio class="audio" loop src="assets/audio/Чистый.mp3"></audio>
+					<div class="author">Author</div>
+					<div class="progress__bar">
+						<div class="progress"></div>
+						<div class="pointer"></div>
+					</div>
+					<div class="music">
+						<div class="music__current-time">00:00</div>
+						<div class="music__total-time"></div>
+					</div>
+				</div>
+				<div class="buttons">
+					<!-- <div class="btn random"><img class="img__random" src="assets/icons/random.svg" alt="random"></div> -->
+					<div class="btn random">
+						<svg id="svg-random" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<g clip-path="url(#clip0_104_16)">
+							<path d="M18 17.883V16L23 19L18 22V19.91C16.4714 19.6911 15.0249 19.0826 13.7995 18.143C12.5741 17.2034 11.6111 15.9644 11.003 14.545L11 14.54L10.997 14.546C10.3031 16.1647 9.14947 17.5443 7.67909 18.5138C6.20872 19.4833 4.48621 20 2.725 20H2V18H2.725C4.09498 18 5.43484 17.5979 6.57852 16.8437C7.7222 16.0895 8.61942 15.0162 9.159 13.757L9.912 12L9.159 10.243C8.61942 8.98375 7.7222 7.91052 6.57852 7.1563C5.43484 6.40208 4.09498 6.00004 2.725 6H2V4H2.725C4.48632 4.00008 6.20891 4.51698 7.6793 5.48663C9.14968 6.45628 10.3032 7.83607 10.997 9.455L11 9.46L11.003 9.454C11.6112 8.0348 12.5743 6.79594 13.7997 5.85654C15.0251 4.91714 16.4715 4.3088 18 4.09V2L23 5L18 8V6.117C16.8669 6.32694 15.8031 6.81339 14.9032 7.53315C14.0032 8.25292 13.2949 9.18374 12.841 10.243L12.088 12L12.841 13.757C13.2949 14.8163 14.0032 15.7471 14.9032 16.4668C15.8031 17.1866 16.8669 17.6731 18 17.883V17.883Z" fill="white"/>
+							</g>
+							<defs>
+							<clipPath id="clip0_104_16">
+							<rect width="24" height="24" fill="white"/>
+							</clipPath>
+							</defs>
+						</svg>
+					</div>
+					<div class="btn prev"><img src="assets/icons/prev.svg" alt="prev"></div>
+					<div class="btn play"><img class="pause" src="assets/icons/play.svg" alt="play"></div>
+					<div class="btn next"><img src="assets/icons/next.svg" alt="next"></div>
+					<!-- <div class="btn repeat"><img src="assets/icons/repeat.svg" alt="repeat"></div> -->
+					<!-- <label for="" class="repeat__checkbox"></label> -->
+					<div class="btn repeat">
+						<svg  id="svg-repeat" width="24" height="24" viewBox="0 0 24 24"  xmlns="http://www.w3.org/2000/svg">
+							<g clip-path="url(#clip0_2_11)">
+							<path d="M8 20V21.932C8.00015 22.0271 7.97319 22.1203 7.92227 22.2006C7.87134 22.2809 7.79858 22.345 7.7125 22.3854C7.62642 22.4258 7.53061 22.4409 7.43629 22.4288C7.34197 22.4166 7.25307 22.3779 7.18 22.317L3.06 18.884C2.98098 18.8181 2.92421 18.7294 2.89744 18.6301C2.87067 18.5308 2.8752 18.4256 2.91042 18.3289C2.94563 18.2322 3.00982 18.1487 3.09421 18.0899C3.17861 18.031 3.27911 17.9996 3.382 18H18C18.5304 18 19.0391 17.7893 19.4142 17.4142C19.7893 17.0392 20 16.5304 20 16V8.00001H22V16C22 17.0609 21.5786 18.0783 20.8284 18.8284C20.0783 19.5786 19.0609 20 18 20H8ZM16 4.00001V2.06801C15.9998 1.97292 16.0268 1.87976 16.0777 1.79945C16.1287 1.71914 16.2014 1.65502 16.2875 1.6146C16.3736 1.57419 16.4694 1.55916 16.5637 1.57128C16.658 1.58339 16.7469 1.62215 16.82 1.68301L20.94 5.11601C21.019 5.18186 21.0757 5.27044 21.1025 5.36969C21.1293 5.46894 21.1248 5.57404 21.0898 5.67067C21.0547 5.7673 20.9906 5.85077 20.9064 5.90971C20.8222 5.96864 20.7218 6.00017 20.619 6.00001H6C5.46957 6.00001 4.96086 6.21073 4.58579 6.5858C4.21071 6.96087 4 7.46958 4 8.00001V16H2V8.00001C2 6.93915 2.42143 5.92173 3.17157 5.17159C3.92172 4.42144 4.93913 4.00001 6 4.00001H16Z" fill="white"/>
+							</g>
+							<defs>
+							<clipPath id="clip0_2_11">
+							<rect  width="24" height="24" />
+							</clipPath>
+							</defs>
+						</svg>
+					</div>
+				</div>
+			</div>
+			<section class="all-music">
+				<div class="favorite">
+				
+
+				</div>
+			</section>
+		</div>
+
+	</div>
+	
+	
+	<script src="js/script.js"></script>
+</body>
+</html>
